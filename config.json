@@ -155,14 +155,6 @@
       "type": "WindInfo"
      },
      {
-      "name": "rain",
-      "type": "RainInfo"
-     },
-     {
-      "name": "snow",
-      "type": "SnowInfo"
-     },
-     {
       "name": "sys",
       "type": "SysInfo"
      }
@@ -288,32 +280,6 @@
       "name": "deg",
       "type": "Float",
       "description": "Wind direction."
-     }
-    ],
-    "computedFields": [],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "RainInfo",
-    "fields": [
-     {
-      "name": "3h",
-      "type": "String",
-      "description": "Rain volume for last 3 hours, mm"
-     }
-    ],
-    "computedFields": [],
-    "actions": [],
-    "events": []
-   },
-   {
-    "name": "SnowInfo",
-    "fields": [
-     {
-      "name": "3h",
-      "type": "String",
-      "description": "Snow volume for last 3 hours, mm"
      }
     ],
     "computedFields": [],
