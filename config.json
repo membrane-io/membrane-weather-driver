@@ -164,7 +164,7 @@
      },
      {
       "name": "sys",
-      "type": "Sys"
+      "type": "SysInfo"
      }
     ],
     "computedFields": [
@@ -321,7 +321,7 @@
     "events": []
    },
    {
-    "name": "sys",
+    "name": "SysInfo",
     "fields": [
      {
       "name": "pod",
