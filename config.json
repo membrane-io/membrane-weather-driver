@@ -148,7 +148,7 @@
      },
      {
       "name": "clouds",
-      "type": "CloudsInfo"
+      "type": "CloudInfo"
      },
      {
       "name": "wind",
