@@ -1,0 +1,340 @@
+{
+ "imports": [],
+ "dependencies": [],
+ "environment": [
+  {
+   "name": "APPID",
+   "description": "The API key"
+  }
+ ],
+ "endpoints": [],
+ "schema": {
+  "types": [
+   {
+    "name": "Root",
+    "fields": [
+     {
+      "name": "locations",
+      "type": "LocationCollection"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "LocationCollection",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "byZipCode",
+      "type": "Location",
+      "params": [
+       {
+        "name": "zip",
+        "type": "String",
+        "description": "Zip code"
+       },
+       {
+        "name": "country",
+        "type": "String",
+        "description": "Country, USA as a default."
+       }
+      ]
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Location",
+    "fields": [
+     {
+      "name": "cod",
+      "type": "String",
+      "description": "Internal parameter"
+     },
+     {
+      "name": "cnt",
+      "type": "Int",
+      "description": "Number of lines returned by this API call"
+     },
+     {
+      "name": "message",
+      "type": "Float",
+      "description": "Internal parameter"
+     },
+     {
+      "name": "city",
+      "type": "City"
+     },
+     {
+      "name": "list",
+      "type": "List",
+      "ofType": {
+       "type": "ListItem"
+      }
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "City",
+    "fields": [
+     {
+      "name": "id",
+      "type": "Int"
+     },
+     {
+      "name": "name",
+      "type": "String"
+     },
+     {
+      "name": "country",
+      "type": "String"
+     },
+     {
+      "name": "country",
+      "type": "Coordinates"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Coordinates",
+    "fields": [
+     {
+      "name": "lon",
+      "type": "String",
+      "description": "City geo location, latitude"
+     },
+     {
+      "name": "lat",
+      "type": "String",
+      "description": "City geo location, longitude"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "ListItem",
+    "fields": [
+     {
+      "name": "dt",
+      "type": "Int",
+      "description": "Time of data forecasted, unix, UTC"
+     },
+     {
+      "name": "dt_txt",
+      "type": "String",
+      "description": "Data/time of calculation, UTC"
+     },
+     {
+      "name": "main",
+      "type": "Main"
+     },
+     {
+      "name": "wheater",
+      "type": "List",
+      "ofType": {
+       "type": "WheaterInfo"
+      }
+     },
+     {
+      "name": "clouds",
+      "type": "CloudsInfo"
+     },
+     {
+      "name": "wind",
+      "type": "WindInfo"
+     },
+     {
+      "name": "rain",
+      "type": "RainInfo"
+     },
+     {
+      "name": "snow",
+      "type": "SnowInfo"
+     },
+     {
+      "name": "sys",
+      "type": "Sys"
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "self",
+      "type": "Ref",
+      "ofType": {
+       "type": "ListItem"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Main",
+    "fields": [
+     {
+      "name": "temp",
+      "type": "Float",
+      "description": "Temperature"
+     },
+     {
+      "name": "tempMin",
+      "type": "Float",
+      "description": "Minimum temperature at the moment of calculation."
+     },
+     {
+      "name": "tempMax",
+      "type": "Float",
+      "description": " Maximum temperature at the moment of calculation."
+     },
+     {
+      "name": "pressure",
+      "type": "Float",
+      "description": "Atmospheric pressure on the sea level by default, hPa"
+     },
+     {
+      "name": "seaLevel",
+      "type": "Float",
+      "description": "Atmospheric pressure on the sea level, hPa"
+     },
+     {
+      "name": "grndLevel",
+      "type": "Float",
+      "description": "Atmospheric pressure on the ground level, hPa"
+     },
+     {
+      "name": "humidity",
+      "type": "Int",
+      "description": "Humidity, %"
+     },
+     {
+      "name": "tempKf",
+      "type": "Float",
+      "description": "Internal parameter"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "WeatherInfo",
+    "fields": [
+     {
+      "name": "id",
+      "type": "Int",
+      "description": "Weather condition id"
+     },
+     {
+      "name": "main",
+      "type": "String",
+      "description": "Group of weather parameters "
+     },
+     {
+      "name": "description",
+      "type": "String",
+      "description": "Weather condition within the group"
+     },
+     {
+      "name": "icon",
+      "type": "String",
+      "description": "Weather icon id"
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "self",
+      "type": "Ref",
+      "ofType": {
+       "type": "WeatherInfo"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "CloudInfo",
+    "fields": [
+     {
+      "name": "all",
+      "type": "Int",
+      "description": "Cloudiness, %"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "WindInfo",
+    "fields": [
+     {
+      "name": "speed",
+      "type": "Float",
+      "description": "Wind speed."
+     },
+     {
+      "name": "deg",
+      "type": "Float",
+      "description": "Wind direction."
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "RainInfo",
+    "fields": [
+     {
+      "name": "3h",
+      "type": "String",
+      "description": "Rain volume for last 3 hours, mm"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "SnowInfo",
+    "fields": [
+     {
+      "name": "3h",
+      "type": "String",
+      "description": "Snow volume for last 3 hours, mm"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "sys",
+    "fields": [
+     {
+      "name": "pod",
+      "type": "String"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   }
+  ]
+ },
+ "expressions": [],
+ "database": [],
+ "isDriver": false
+}

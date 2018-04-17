@@ -1,14 +1,19 @@
-const { root } = program.refs
+const { root } = program.refs;
+const { APPID } = process.env;
+
+import { get } from './client';
 
 export async function init() {
-  // Called when the program is run
+	await root.set({
+		locations: {},
+	});
 }
 
-export async function update() {
-  // Called when the program is updated from a previous version
-}
-
-export async function timer({ key }) {
-  // Called every time a timer fires
-}
-
+export const LocationCollection = {
+	async byZipCode({ args }) {
+		const { country, zip } = args;
+		const result = await get(`/forecast?zip=${zip},${country}&APPID=${APPID}`);
+		console.log('Result: ' + result)
+		return result;
+	},
+};

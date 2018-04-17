@@ -1,6 +1,8 @@
 {
   "name": "membrane-weather-driver",
   "version": "1",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "license": "MIT"
 }
