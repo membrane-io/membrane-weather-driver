@@ -140,10 +140,10 @@
       "type": "Main"
      },
      {
-      "name": "wheater",
+      "name": "weather",
       "type": "List",
       "ofType": {
-       "type": "WheaterInfo"
+       "type": "WeatherInfo"
       }
      },
      {
