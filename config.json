@@ -70,10 +70,7 @@
      },
      {
       "name": "list",
-      "type": "List",
-      "ofType": {
-       "type": "ListItem"
-      }
+      "type": "ListCollection"
      }
     ],
     "computedFields": [],
@@ -119,6 +116,31 @@
      }
     ],
     "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "ListCollection",
+    "fields": [
+     {
+      "name": "dt",
+      "type": "Int",
+      "description": "Time of data forecasted, unix, UTC"
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "one",
+      "type": "ListItem"
+     },
+     {
+      "name": "items",
+      "type": "List",
+      "ofType": {
+       "type": "ListItem"
+      }
+     }
+    ],
     "actions": [],
     "events": []
    },
@@ -172,7 +194,7 @@
       "name": "self",
       "type": "Ref",
       "ofType": {
-       "type": "Location"
+       "type": "ListItem"
       }
      }
     ],
