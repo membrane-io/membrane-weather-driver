@@ -1,5 +1,5 @@
 const client = require('axios').create({
-  baseURL: 'api.openweathermap.org/data/2.5/'
+  baseURL: 'http://api.openweathermap.org/data/2.5/'
 });
 
 export async function get(url, params) {
