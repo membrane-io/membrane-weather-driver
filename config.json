@@ -121,17 +121,18 @@
    },
    {
     "name": "ListCollection",
-    "fields": [
-     {
-      "name": "dt",
-      "type": "Int",
-      "description": "Time of data forecasted, unix, UTC"
-     }
-    ],
+    "fields": [],
     "computedFields": [
      {
       "name": "one",
-      "type": "ListItem"
+      "type": "ListItem",
+      "params": [
+       {
+        "name": "dt",
+        "type": "Int",
+        "description": "Time of data forecasted, unix, UTC"
+       }
+      ]
      },
      {
       "name": "items",

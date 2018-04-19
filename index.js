@@ -30,11 +30,10 @@ export const ListCollection = {
 };
 
 export const ListItem = {
-	async self({ source, self , parent}) {
-		// or self.match ?
-		const { zip, country } = parent.match(root.locations.byZipCode());
+	async self({ source, self }) {
+		const { zip, country } = self.match(root.locations.byZipCode());
 		return root.locations
-			.byZipCode({ country: 'us', zip: '94040' }) // fake data
+			.byZipCode({ country: us, zip: zip })
 			.list.one({ dt: source.dt });
 	},
 };

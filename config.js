@@ -30,7 +30,7 @@ schema.type('Coordinates')
 
 schema.type('ListCollection')
   .computed('one', 'ListItem')
- 	.field('dt', 'Int' , 'Time of data forecasted, unix, UTC')
+ 	.param('dt', 'Int' , 'Time of data forecasted, unix, UTC')
   .computed('items', '[ListItem]')
 
 schema.type('ListItem')
