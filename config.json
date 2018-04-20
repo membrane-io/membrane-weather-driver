@@ -131,6 +131,10 @@
        {
         "name": "hours",
         "type": "Int"
+       },
+       {
+        "name": "dt",
+        "type": "Int"
        }
       ]
      },

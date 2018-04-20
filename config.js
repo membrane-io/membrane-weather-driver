@@ -31,6 +31,7 @@ schema.type('Coordinates')
 schema.type('ForecastCollection')
   .computed('one', 'ListItem')
  	  .param('hours', 'Int')
+    .param('dt', 'Int')
   .computed('items', '[ListItem]')
 
 schema.type('ListItem')

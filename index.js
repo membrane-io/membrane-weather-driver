@@ -25,8 +25,13 @@ export const Location = {
 
 export const ForecastCollection = {
   one({ source, args }) {
-    const hourEpoch = args.hours * 3600 - new Date().getTime();
-    const item = source.find(one => one.dt * 1000 > hourEpoch);
+    const { hours, dt } = args;
+    if (!hours && dt) {
+      const item = source.find(one => one.dt == args.dt);
+      return item;
+    }
+    const epochHours = args.hours * 3600000 + new Date().getTime();
+    const item = source.find(one => one.dt * 1000 > epochHours);
     return item;
   },
   items({ source }) {
