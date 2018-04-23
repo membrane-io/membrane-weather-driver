@@ -316,7 +316,13 @@
    }
   ]
  },
- "expressions": [],
+ "expressions": [
+  {
+   "name": "zip",
+   "pattern": "^[0-9]{5}$",
+   "description": ""
+  }
+ ],
  "database": [],
  "isDriver": false
 }
