@@ -9,6 +9,12 @@ export async function init() {
   });
 }
 
+export async function parse({ name, value }) {
+  if (name === 'zip') {
+    return root.locations.byZipCode({ country: 'us', zip: value })
+  }
+}
+
 export const LocationCollection = {
   async byZipCode({ args }) {
     const { country, zip } = args;

@@ -6,6 +6,9 @@ environment
 schema.type('Root')
   .field('locations', 'LocationCollection')
 
+expressions
+  .add('zip', '^[0-9]{5}$')
+
 schema.type('LocationCollection')
   .computed('byZipCode', 'Location')
     .param('zip', 'String', 'Zip code')
