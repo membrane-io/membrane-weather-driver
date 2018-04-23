@@ -2,7 +2,8 @@
   "name": "driver",
   "version": "1",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "supports-color": "^5.4.0"
   },
   "license": "MIT"
 }
