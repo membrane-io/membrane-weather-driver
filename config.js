@@ -1,7 +1,10 @@
-const { schema, imports, dependencies, environment, expressions, endpoints } = program;
+const { schema, imports, dependencies, environment, expressions, endpoints, tests } = program;
 
 environment
   .add('APPID', 'The API key')
+
+tests
+  .add('access', 'The driver can access the OpenWeatherMap API and retrieve data')
 
 schema.type('Root')
   .field('locations', 'LocationCollection')

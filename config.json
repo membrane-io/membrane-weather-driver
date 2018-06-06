@@ -1,5 +1,4 @@
 {
- "imports": [],
  "dependencies": [],
  "environment": [
   {
@@ -9,6 +8,7 @@
  ],
  "endpoints": [],
  "schema": {
+  "imports": [],
   "types": [
    {
     "name": "Root",
@@ -324,5 +324,11 @@
   }
  ],
  "database": [],
+ "tests": [
+  {
+   "name": "access",
+   "description": "The driver can access the OpenWeatherMap API and retrieve data"
+  }
+ ],
  "isDriver": false
 }

@@ -9,6 +9,24 @@ export async function init() {
   });
 }
 
+export async function test({ name }) {
+  switch (name) {
+    case 'access': {
+      if (!APPID) {
+        return false;
+      }
+      try {
+        const res = await client.get(`/weather?q=London,uk&appid=${APPID}`)
+        return res && res.status === 200;
+      } catch (e) {
+        return false;
+      }
+      break;
+    }
+  }
+  return false;
+}
+
 export async function parse({ name, value }) {
   if (name === 'zip') {
     return root.locations.byZipCode({ country: 'us', zip: value })
