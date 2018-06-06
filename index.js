@@ -1,7 +1,7 @@
 const { root } = program.refs;
 const { APPID } = process.env;
 
-import { get } from './client';
+import { client, get } from './client';
 
 export async function init() {
   await root.set({
@@ -15,6 +15,7 @@ export async function test({ name }) {
       if (!APPID) {
         return false;
       }
+      
       try {
         const res = await client.get(`/weather?q=London,uk&appid=${APPID}`)
         return res && res.status === 200;
