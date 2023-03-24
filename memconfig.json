@@ -7,10 +7,16 @@
         "fields": [
           {
             "name": "weather",
-            "type": "Weather"
+            "type": "Weather",
+            "params": [
+              {
+                "name": "units",
+                "type": "String"
+              }
+            ]
           },
           {
-            "name": "name",
+            "name": "status",
             "type": "String"
           }
         ],
@@ -32,10 +38,6 @@
                 "type": "String"
               }
             ]
-          },
-          {
-            "name": "status",
-            "type": "String"
           }
         ]
       },
@@ -183,7 +185,8 @@
           },
           {
             "name": "weather",
-            "type": "WeatherData"
+            "type": "List",
+            "ofType": "WeatherData"
           }
         ]
       },
@@ -304,7 +307,8 @@
           },
           {
             "name": "weather",
-            "type": "WeatherData"
+            "type": "List",
+            "ofType": "WeatherData"
           }
         ]
       },
@@ -392,7 +396,8 @@
           },
           {
             "name": "weather",
-            "type": "WeatherData"
+            "type": "List",
+            "ofType": "WeatherData"
           }
         ]
       },

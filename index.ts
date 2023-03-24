@@ -9,7 +9,7 @@ export const Root = {
     if (!state.apiKey) {
       return "Invoke `:configure` with your openweathermap.org API key first";
     }
-    return "Ready";
+    return `Weather for ${state.cityData.name}`;
   },
   async configure({ args: { apiKey, zipCode, countryCode } }) {
     state.apiKey = apiKey;
@@ -21,11 +21,11 @@ export const Root = {
     // Save the retrieved city data in the state object
     state.cityData = await res.json();
   },
-  name: () => state.cityData.name,
-  async weather() {
+  async weather({ args: { units }}) {
     const query = {
       lat: state.cityData.lat,
       lon: state.cityData.lon,
+      units: units || "imperial",
     };
     const res = await api("GET", "data/2.5/onecall", query);
     return await res.json();
