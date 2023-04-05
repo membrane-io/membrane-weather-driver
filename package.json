@@ -1,9 +1,0 @@
-{
-  "name": "weather",
-  "version": "0.0.1",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "supports-color": "^5.4.0"
-  },
-  "license": "MIT"
-}
