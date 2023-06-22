@@ -31,11 +31,13 @@
               },
               {
                 "name": "zipCode",
-                "type": "String"
+                "type": "String",
+                "optional": false
               },
               {
                 "name": "countryCode",
-                "type": "String"
+                "type": "String",
+                "optional": false
               }
             ]
           }
