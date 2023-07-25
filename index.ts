@@ -5,6 +5,7 @@ import { nodes, root, state } from "membrane";
 import { api } from "./utils";
 
 export const Root = {
+  tests: () => ({}),
   status: () => {
     if (!state.apiKey) {
       return "Invoke `:configure` with your openweathermap.org API key first";
@@ -30,6 +31,13 @@ export const Root = {
     const res = await api("GET", "data/2.5/onecall", query);
     return await res.json();
   },
+};
+
+export const Tests = {
+  testWeatherTemp: async () => {
+    const temp = await root.weather({ units: "metric" }).current.temp;
+    return  typeof temp === 'number';
+  }
 };
 
 export const Weather = {

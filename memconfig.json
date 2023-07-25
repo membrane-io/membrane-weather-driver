@@ -18,6 +18,10 @@
           {
             "name": "status",
             "type": "String"
+          },
+          {
+            "name": "tests",
+            "type": "Tests"
           }
         ],
         "actions": [
@@ -456,6 +460,15 @@
             "name": "items",
             "type": "List",
             "ofType": "Daily"
+          }
+        ]
+      },
+      {
+        "name": "Tests",
+        "actions": [
+          {
+            "name": "testWeatherTemp",
+            "type": "Boolean"
           }
         ]
       }
