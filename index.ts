@@ -13,10 +13,10 @@ export const Root = {
     }
     return `Ready`;
   },
-  async configure({ args: { apiKey } }) {
+  async configure({ apiKey }) {
     state.apiKey = apiKey ?? state.apiKey;
   },
-  async weather({ args: { units, zipCode, countryCode } }) {
+  async weather({ units, zipCode, countryCode }) {
     const zip = `${zipCode},${countryCode ?? "US"}`;
 
     // Retrieve and cache lat/lon for the given zip/country code
@@ -39,8 +39,8 @@ export const Root = {
 };
 
 export const Weather = {
-  current: ({ obj }) => obj.current,
-  hourly: ({ obj }) => obj.hourly,
-  daily: ({ obj }) => obj.daily,
-  minutely: ({ obj }) => obj.minutely,
+  current: (_, { obj }) => obj.current,
+  hourly: (_, { obj }) => obj.hourly,
+  daily: (_, { obj }) => obj.daily,
+  minutely: (_, { obj }) => obj.minutely,
 };
