@@ -1,7 +1,7 @@
 // `nodes` contain any nodes you add from the graph (dependencies)
 // `root` is a reference to this program's root node
 // `state` is an object that persists across program updates. Store data here.
-import { state } from "membrane";
+import { state, root } from "membrane";
 import { api } from "./utils";
 
 state.latLon = state.latLon ?? {};
@@ -35,6 +35,16 @@ export const Root = {
       throw new Error(`OpenWeather API returned ${res.status}: ${res.text()}`);
     }
     return await res.json();
+  },
+  tests() {
+    return {};
+  },
+};
+
+export const Tests = {
+  testGetCurrentTemp: async () => {
+    const temp = await root.weather({ zipCode: "10001" }).current.temp;
+    return typeof temp === "number";
   },
 };
 
