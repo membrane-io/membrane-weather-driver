@@ -11,7 +11,18 @@
             "params": [
               {
                 "name": "units",
-                "type": "String"
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "zipCode",
+                "type": "String",
+                "optional": false
+              },
+              {
+                "name": "countryCode",
+                "type": "String",
+                "optional": true
               }
             ]
           },
@@ -32,16 +43,6 @@
               {
                 "name": "apiKey",
                 "type": "String"
-              },
-              {
-                "name": "zipCode",
-                "type": "String",
-                "optional": false
-              },
-              {
-                "name": "countryCode",
-                "type": "String",
-                "optional": false
               }
             ]
           }
@@ -56,18 +57,18 @@
           },
           {
             "name": "minutely",
-            "type": "MinutelyCollection",
-            "ofType": "MinuteData"
+            "type": "Json",
+            "ofType": "Json"
           },
           {
             "name": "hourly",
-            "type": "HourlyCollection",
-            "ofType": "HourlyData"
+            "type": "Json",
+            "ofType": "Json"
           },
           {
             "name": "daily",
-            "type": "DailyCollection",
-            "ofType": "DailyData"
+            "type": "Json",
+            "ofType": "Json"
           }
         ]
       },
@@ -222,26 +223,6 @@
           {
             "name": "morn",
             "type": "Float"
-          }
-        ]
-      },
-      {
-        "name": "HourlyCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Hourly",
-            "params": [
-              {
-                "name": "dt",
-                "type": "Int"
-              }
-            ]
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Hourly"
           }
         ]
       },
@@ -424,42 +405,11 @@
         ]
       },
       {
-        "name": "MinutelyCollection",
-        "fields": [
+        "name": "Tests",
+        "actions": [
           {
-            "name": "one",
-            "type": "Minutely",
-            "params": [
-              {
-                "name": "dt",
-                "type": "Int"
-              }
-            ]
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Minutely"
-          }
-        ]
-      },
-      {
-        "name": "DailyCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Daily",
-            "params": [
-              {
-                "name": "dt",
-                "type": "Int"
-              }
-            ]
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Daily"
+            "name": "testGetCurrentTemp",
+            "type": "Boolean"
           }
         ]
       },
