@@ -408,15 +408,6 @@
         "name": "Tests",
         "actions": [
           {
-            "name": "testGetCurrentTemp",
-            "type": "Boolean"
-          }
-        ]
-      },
-      {
-        "name": "Tests",
-        "actions": [
-          {
             "name": "testWeatherTemp",
             "type": "Boolean"
           }

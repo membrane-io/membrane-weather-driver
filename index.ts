@@ -37,23 +37,13 @@ export const Root = {
     }
     return await res.json();
   },
-  tests() {
-    return {};
-  },
-};
-
-export const Tests = {
-  testGetCurrentTemp: async () => {
-    const temp = await root.weather({ zipCode: "10001" }).current.temp;
-    return typeof temp === "number";
-  },
 };
 
 export const Tests = {
   testWeatherTemp: async () => {
-    const temp = await root.weather({ units: "metric" }).current.temp;
-    return  typeof temp === 'number';
-  }
+    const temp = await root.weather({ zipCode: "10001" }).current.temp;
+    return typeof temp === "number";
+  },
 };
 
 export const Weather = {
