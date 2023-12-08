@@ -1,0 +1,428 @@
+{
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "description": "Represents the weather data for a specific location",
+        "fields": [
+          {
+            "name": "weather",
+            "type": "Weather",
+            "params": [
+              {
+                "name": "units",
+                "type": "String",
+                "optional": true,
+                "description": "The unit of measurement for the weather data"
+              },
+              {
+                "name": "zipCode",
+                "type": "String",
+                "optional": false,
+                "description": "The zip code for the location of the weather data"
+              },
+              {
+                "name": "countryCode",
+                "type": "String",
+                "optional": true,
+                "description": "The country code for the location of the weather data"
+              }
+            ],
+            "description": "Represents the weather data for a specific location"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Represents the status of the weather data for a specific location"
+          },
+          {
+            "name": "tests",
+            "type": "Tests",
+            "description": "Represents the tests for the weather data"
+          }
+        ],
+        "actions": [
+          {
+            "name": "configure",
+            "type": "Void",
+            "params": [
+              {
+                "name": "apiKey",
+                "type": "String"
+              }
+            ],
+            "description": "Configures the API key for accessing weather data"
+          }
+        ]
+      },
+      {
+        "name": "Weather",
+        "fields": [
+          {
+            "name": "current",
+            "type": "CurrentData"
+          },
+          {
+            "name": "minutely",
+            "type": "Json",
+            "ofType": "Json"
+          },
+          {
+            "name": "hourly",
+            "type": "Json",
+            "ofType": "Json"
+          },
+          {
+            "name": "daily",
+            "type": "Json",
+            "ofType": "Json"
+          }
+        ]
+      },
+      {
+        "name": "FeelsLike",
+        "fields": [
+          {
+            "name": "day",
+            "type": "Float"
+          },
+          {
+            "name": "night",
+            "type": "Float"
+          },
+          {
+            "name": "eve",
+            "type": "Float"
+          },
+          {
+            "name": "morn",
+            "type": "Float"
+          }
+        ]
+      },
+      {
+        "name": "WeatherData",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Int"
+          },
+          {
+            "name": "main",
+            "type": "String"
+          },
+          {
+            "name": "description",
+            "type": "String"
+          },
+          {
+            "name": "icon",
+            "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "Rain",
+        "fields": [
+          {
+            "name": "1h",
+            "type": "Float"
+          }
+        ]
+      },
+      {
+        "name": "CurrentData",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int"
+          },
+          {
+            "name": "sunrise",
+            "type": "Int"
+          },
+          {
+            "name": "sunset",
+            "type": "Int"
+          },
+          {
+            "name": "temp",
+            "type": "Float"
+          },
+          {
+            "name": "feels_like",
+            "type": "Float"
+          },
+          {
+            "name": "pressure",
+            "type": "Int"
+          },
+          {
+            "name": "humidity",
+            "type": "Int"
+          },
+          {
+            "name": "dew_point",
+            "type": "Float"
+          },
+          {
+            "name": "clouds",
+            "type": "Int"
+          },
+          {
+            "name": "uvi",
+            "type": "Float"
+          },
+          {
+            "name": "visibility",
+            "type": "Int"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Int"
+          },
+          {
+            "name": "rain",
+            "type": "Rain"
+          },
+          {
+            "name": "snow",
+            "type": "Rain"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData"
+          }
+        ]
+      },
+      {
+        "name": "Temperature",
+        "fields": [
+          {
+            "name": "day",
+            "type": "Float"
+          },
+          {
+            "name": "min",
+            "type": "Float"
+          },
+          {
+            "name": "max",
+            "type": "Float"
+          },
+          {
+            "name": "night",
+            "type": "Float"
+          },
+          {
+            "name": "eve",
+            "type": "Float"
+          },
+          {
+            "name": "morn",
+            "type": "Float"
+          }
+        ]
+      },
+      {
+        "name": "Hourly",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int"
+          },
+          {
+            "name": "temp",
+            "type": "Float",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "feels_like",
+            "type": "Float"
+          },
+          {
+            "name": "pressure",
+            "type": "Float"
+          },
+          {
+            "name": "humidity",
+            "type": "Float"
+          },
+          {
+            "name": "dew_point",
+            "type": "Float"
+          },
+          {
+            "name": "uvi",
+            "type": "Float"
+          },
+          {
+            "name": "clouds",
+            "type": "Float"
+          },
+          {
+            "name": "visibility",
+            "type": "Float"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Float"
+          },
+          {
+            "name": "pop",
+            "type": "Float"
+          },
+          {
+            "name": "rain",
+            "type": "Float"
+          },
+          {
+            "name": "snow",
+            "type": "Rain"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData"
+          }
+        ]
+      },
+      {
+        "name": "Daily",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int"
+          },
+          {
+            "name": "sunrise",
+            "type": "Int"
+          },
+          {
+            "name": "sunset",
+            "type": "Int"
+          },
+          {
+            "name": "moonrise",
+            "type": "Int"
+          },
+          {
+            "name": "moonset",
+            "type": "Int"
+          },
+          {
+            "name": "moon_phase",
+            "type": "Float"
+          },
+          {
+            "name": "temp",
+            "type": "Temperature"
+          },
+          {
+            "name": "feels_like",
+            "type": "FeelsLike"
+          },
+          {
+            "name": "pressure",
+            "type": "Int"
+          },
+          {
+            "name": "humidity",
+            "type": "Int",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "dew_point",
+            "type": "Float"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Int"
+          },
+          {
+            "name": "clouds",
+            "type": "Int"
+          },
+          {
+            "name": "pop",
+            "type": "Float"
+          },
+          {
+            "name": "rain",
+            "type": "Float"
+          },
+          {
+            "name": "snow",
+            "type": "Rain"
+          },
+          {
+            "name": "uvi",
+            "type": "Float"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData"
+          }
+        ]
+      },
+      {
+        "name": "Minutely",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int"
+          },
+          {
+            "name": "precipitation",
+            "hints": {
+              "primary": true
+            },
+            "type": "Float"
+          }
+        ]
+      },
+      {
+        "name": "Tests",
+        "actions": [
+          {
+            "name": "testWeatherTemp",
+            "type": "Boolean"
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "http": "http:"
+  }
+}
