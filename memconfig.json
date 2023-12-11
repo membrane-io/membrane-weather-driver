@@ -1,0 +1,493 @@
+{
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "description": "Represents the weather data for a specific location",
+        "fields": [
+          {
+            "name": "weather",
+            "type": "Weather",
+            "params": [
+              {
+                "name": "units",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "zipCode",
+                "type": "String",
+                "optional": false
+              },
+              {
+                "name": "countryCode",
+                "type": "String",
+                "optional": true
+              }
+            ],
+            "description": "Represents the weather data for a specific location"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Represents the status of the weather data for a specific location"
+          },
+          {
+            "name": "tests",
+            "type": "Tests",
+            "description": "Represents the test data for a specific location"
+          }
+        ],
+        "actions": [
+          {
+            "name": "configure",
+            "type": "Void",
+            "params": [
+              {
+                "name": "apiKey",
+                "type": "String"
+              }
+            ],
+            "description": "Configures the weather data provider with the API key"
+          }
+        ]
+      },
+      {
+        "name": "Weather",
+        "fields": [
+          {
+            "name": "current",
+            "type": "CurrentData",
+            "description": "Current weather data"
+          },
+          {
+            "name": "minutely",
+            "type": "Json",
+            "ofType": "Json",
+            "description": "Minutely weather data"
+          },
+          {
+            "name": "hourly",
+            "type": "Json",
+            "ofType": "Json",
+            "description": "Hourly weather data"
+          },
+          {
+            "name": "daily",
+            "type": "Json",
+            "ofType": "Json",
+            "description": "Daily weather data"
+          }
+        ],
+        "description": "Weather Driver"
+      },
+      {
+        "name": "FeelsLike",
+        "fields": [
+          {
+            "name": "day",
+            "type": "Float",
+            "description": "The temperature during the day."
+          },
+          {
+            "name": "night",
+            "type": "Float",
+            "description": "The temperature during the night."
+          },
+          {
+            "name": "eve",
+            "type": "Float",
+            "description": "The temperature during the evening."
+          },
+          {
+            "name": "morn",
+            "type": "Float",
+            "description": "The temperature during the morning."
+          }
+        ],
+        "description": "Type representing the 'FeelsLike' weather data."
+      },
+      {
+        "name": "WeatherData",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Int",
+            "description": "ID of the weather"
+          },
+          {
+            "name": "main",
+            "type": "String",
+            "description": "Main weather condition"
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "description": "Description of the weather"
+          },
+          {
+            "name": "icon",
+            "type": "String",
+            "description": "Icon representing the weather"
+          }
+        ],
+        "description": "Type representing weather data"
+      },
+      {
+        "name": "Rain",
+        "fields": [
+          {
+            "name": "1h",
+            "type": "Float",
+            "description": "Amount of rain in the last hour"
+          }
+        ],
+        "description": "Weather driver for rain data"
+      },
+      {
+        "name": "CurrentData",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int"
+          },
+          {
+            "name": "sunrise",
+            "type": "Int"
+          },
+          {
+            "name": "sunset",
+            "type": "Int"
+          },
+          {
+            "name": "temp",
+            "type": "Float"
+          },
+          {
+            "name": "feels_like",
+            "type": "Float"
+          },
+          {
+            "name": "pressure",
+            "type": "Int"
+          },
+          {
+            "name": "humidity",
+            "type": "Int"
+          },
+          {
+            "name": "dew_point",
+            "type": "Float"
+          },
+          {
+            "name": "clouds",
+            "type": "Int"
+          },
+          {
+            "name": "uvi",
+            "type": "Float"
+          },
+          {
+            "name": "visibility",
+            "type": "Int"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Int"
+          },
+          {
+            "name": "rain",
+            "type": "Rain"
+          },
+          {
+            "name": "snow",
+            "type": "Rain"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData"
+          }
+        ],
+        "description": "Type representing the current weather data."
+      },
+      {
+        "name": "Temperature",
+        "fields": [
+          {
+            "name": "day",
+            "type": "Float",
+            "description": "The temperature during the day"
+          },
+          {
+            "name": "min",
+            "type": "Float",
+            "description": "The minimum temperature"
+          },
+          {
+            "name": "max",
+            "type": "Float",
+            "description": "The maximum temperature"
+          },
+          {
+            "name": "night",
+            "type": "Float",
+            "description": "The temperature during the night"
+          },
+          {
+            "name": "eve",
+            "type": "Float",
+            "description": "The temperature during the evening"
+          },
+          {
+            "name": "morn",
+            "type": "Float",
+            "description": "The temperature in the morning"
+          }
+        ],
+        "description": "Type representing temperature data for different times of the day"
+      },
+      {
+        "name": "Hourly",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int",
+            "description": "Timestamp of the data"
+          },
+          {
+            "name": "temp",
+            "type": "Float",
+            "hints": {
+              "primary": true
+            },
+            "description": "Temperature in degrees Celsius"
+          },
+          {
+            "name": "feels_like",
+            "type": "Float",
+            "description": "Apparent temperature in degrees Celsius"
+          },
+          {
+            "name": "pressure",
+            "type": "Float",
+            "description": "Atmospheric pressure in hPa"
+          },
+          {
+            "name": "humidity",
+            "type": "Float",
+            "description": "Humidity percentage"
+          },
+          {
+            "name": "dew_point",
+            "type": "Float",
+            "description": "Dew point in degrees Celsius"
+          },
+          {
+            "name": "uvi",
+            "type": "Float",
+            "description": "UV index"
+          },
+          {
+            "name": "clouds",
+            "type": "Float",
+            "description": "Cloudiness percentage"
+          },
+          {
+            "name": "visibility",
+            "type": "Float",
+            "description": "Visibility in meters"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float",
+            "description": "Wind speed in meters per second"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float",
+            "description": "Wind gust in meters per second"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Float",
+            "description": "Wind direction in degrees"
+          },
+          {
+            "name": "pop",
+            "type": "Float",
+            "description": "Probability of precipitation"
+          },
+          {
+            "name": "rain",
+            "type": "Float",
+            "description": "Rain volume in mm"
+          },
+          {
+            "name": "snow",
+            "type": "Rain",
+            "description": "Snow volume in mm"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData",
+            "description": "List of weather data for the hour"
+          }
+        ],
+        "description": "Type representing hourly weather data"
+      },
+      {
+        "name": "Daily",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int",
+            "description": "Timestamp of the data"
+          },
+          {
+            "name": "sunrise",
+            "type": "Int",
+            "description": "Timestamp of sunrise"
+          },
+          {
+            "name": "sunset",
+            "type": "Int",
+            "description": "Timestamp of sunset"
+          },
+          {
+            "name": "moonrise",
+            "type": "Int",
+            "description": "Timestamp of moonrise"
+          },
+          {
+            "name": "moonset",
+            "type": "Int",
+            "description": "Timestamp of moonset"
+          },
+          {
+            "name": "moon_phase",
+            "type": "Float",
+            "description": "Phase of the moon"
+          },
+          {
+            "name": "temp",
+            "type": "Temperature",
+            "description": "Temperature data"
+          },
+          {
+            "name": "feels_like",
+            "type": "FeelsLike",
+            "description": "Feels like temperature"
+          },
+          {
+            "name": "pressure",
+            "type": "Int",
+            "description": "Atmospheric pressure"
+          },
+          {
+            "name": "humidity",
+            "type": "Int",
+            "hints": {
+              "primary": true
+            },
+            "description": "Relative humidity"
+          },
+          {
+            "name": "dew_point",
+            "type": "Float",
+            "description": "Dew point temperature"
+          },
+          {
+            "name": "wind_speed",
+            "type": "Float",
+            "description": "Wind speed"
+          },
+          {
+            "name": "wind_gust",
+            "type": "Float",
+            "description": "Wind gust speed"
+          },
+          {
+            "name": "wind_deg",
+            "type": "Int",
+            "description": "Wind direction in degrees"
+          },
+          {
+            "name": "clouds",
+            "type": "Int",
+            "description": "Cloudiness"
+          },
+          {
+            "name": "pop",
+            "type": "Float",
+            "description": "Probability of precipitation"
+          },
+          {
+            "name": "rain",
+            "type": "Float",
+            "description": "Rain volume"
+          },
+          {
+            "name": "snow",
+            "type": "Rain",
+            "description": "Snow volume"
+          },
+          {
+            "name": "uvi",
+            "type": "Float",
+            "description": "UV index"
+          },
+          {
+            "name": "weather",
+            "type": "List",
+            "ofType": "WeatherData",
+            "description": "List of weather data for the day"
+          }
+        ],
+        "description": "Type Schema for daily weather data"
+      },
+      {
+        "name": "Minutely",
+        "fields": [
+          {
+            "name": "dt",
+            "type": "Int",
+            "description": "Timestamp of the data"
+          },
+          {
+            "name": "precipitation",
+            "hints": {
+              "primary": true
+            },
+            "type": "Float",
+            "description": "Amount of precipitation at the given minute"
+          }
+        ],
+        "description": "Collection of weather data for every minute"
+      },
+      {
+        "name": "Tests",
+        "actions": [
+          {
+            "name": "testWeatherTemp",
+            "type": "Boolean",
+            "description": "Tests the weather temperature functionality"
+          }
+        ],
+        "description": "Collection of weather test cases"
+      }
+    ]
+  },
+  "dependencies": {
+    "http": "http:"
+  }
+}
